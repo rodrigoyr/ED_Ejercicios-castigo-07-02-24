@@ -1,7 +1,7 @@
 public class TablasDeMultiplicar {
 
     public static void main(String[] args) {
-        int n = 10;  // Puedes cambiar este valor si deseas más o menos números
+        int n = 10;
 
         // Obtener las tablas de multiplicar para los primeros n números
         int[][] tablas = obtenerTablasDeMultiplicar(n);
