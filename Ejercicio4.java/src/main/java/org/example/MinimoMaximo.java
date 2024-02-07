@@ -5,28 +5,29 @@ public class MinimoMaximo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Inicializar minimo y maximo con el primer número ingresado
-        int numero = solicitarNumero();
-        int minimo = numero;
-        int maximo = numero;
+        // Inicializar variables para el mayor y el menor
+        int mayor = Integer.MIN_VALUE;
+        int menor = Integer.MAX_VALUE;
 
-        // Continuar ingresando números hasta que se introduzca un número negativo
-        while (numero >= 0) {
-            // Actualizar minimo y maximo si es necesario
-            if (numero < minimo) {
-                minimo = numero;
-            }
-            if (numero > maximo) {
-                maximo = numero;
-            }
-
-            // Solicitar otro número
+        // Solicitar números al usuario hasta que se ingrese un número negativo
+        int numero;
+        do {
             numero = solicitarNumero();
-        }
+
+            // Actualizar mayor y menor si es necesario
+            if (numero >= 0) {
+                mayor = Math.max(mayor, numero);
+                menor = Math.min(menor, numero);
+            }
+        } while (numero >= 0);
 
         // Imprimir resultados
-        System.out.println("El mínimo es: " + minimo);
-        System.out.println("El máximo es: " + maximo);
+        if (mayor != Integer.MIN_VALUE && menor != Integer.MAX_VALUE) {
+            System.out.println("El número mayor es: " + mayor);
+            System.out.println("El número menor es: " + menor);
+        } else {
+            System.out.println("No se ingresaron números positivos.");
+        }
 
         // Cerrar el scanner
         scanner.close();
