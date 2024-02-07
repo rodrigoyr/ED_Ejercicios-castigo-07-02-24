@@ -5,26 +5,28 @@ public class MinimoMaximo {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Inicializar variables para el mayor y el menor
-        int mayor = Integer.MIN_VALUE;
-        int menor = Integer.MAX_VALUE;
+        int maximo = Integer.MIN_VALUE;
+        int minimo = Integer.MAX_VALUE;
 
-        // Solicitar números al usuario hasta que se ingrese un número negativo
-        int numero;
-        do {
-            numero = solicitarNumero();
+        System.out.println("Ingresa una lista de números (termina con un número negativo):");
 
-            // Actualizar mayor y menor si es necesario
-            if (numero >= 0) {
-                mayor = Math.max(mayor, numero);
-                menor = Math.min(menor, numero);
+        while (true) {
+            int numero = solicitarNumero();
+
+            // Verificar si se ingresó un número negativo para terminar el bucle
+            if (numero < 0) {
+                break;
             }
-        } while (numero >= 0);
+
+            // Actualizar máximo y mínimo
+            maximo = Math.max(maximo, numero);
+            minimo = Math.min(minimo, numero);
+        }
 
         // Imprimir resultados
-        if (mayor != Integer.MIN_VALUE && menor != Integer.MAX_VALUE) {
-            System.out.println("El número mayor es: " + mayor);
-            System.out.println("El número menor es: " + menor);
+        if (maximo != Integer.MIN_VALUE && minimo != Integer.MAX_VALUE) {
+            System.out.println("El número máximo es: " + maximo);
+            System.out.println("El número mínimo es: " + minimo);
         } else {
             System.out.println("No se ingresaron números positivos.");
         }
@@ -36,7 +38,7 @@ public class MinimoMaximo {
     // Función para solicitar un número al usuario
     public static int solicitarNumero() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduce un número (negativo para finalizar): ");
+        System.out.print("Introduce un número: ");
         return scanner.nextInt();
     }
 }
