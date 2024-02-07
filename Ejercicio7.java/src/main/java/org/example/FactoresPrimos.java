@@ -10,31 +10,33 @@ public class FactoresPrimos {
         int numero = scanner.nextInt();
 
         // Obtener los factores primos del número
-        int[] factoresPrimos = descomponerEnFactoresPrimos(numero);
+        String resultado = descomponerEnFactoresPrimos(numero);
 
-        // Imprimir los factores primos por pantalla
-        System.out.print("Los factores primos de " + numero + " son: ");
-        for (int factorPrimo : factoresPrimos) {
-            System.out.print(factorPrimo + " ");
-        }
+        // Imprimir el resultado por pantalla
+        System.out.println(resultado);
 
         // Cerrar el scanner
         scanner.close();
     }
 
-    // Función para descomponer un número en factores primos
-    public static int[] descomponerEnFactoresPrimos(int numero) {
-        int[] factoresPrimos = new int[10];  // Asumimos que no habrá más de 10 factores primos
-        int indice = 0;
+    // Función para descomponer un número en factores primos y devolver el resultado como cadena
+    public static String descomponerEnFactoresPrimos(int numero) {
+        StringBuilder resultado = new StringBuilder();
+        resultado.append(numero).append(" = ");
 
         for (int i = 2; i <= numero; i++) {
             while (numero % i == 0) {
-                factoresPrimos[indice] = i;
-                indice++;
+                resultado.append(i);
+                resultado.append(" * ");
                 numero /= i;
             }
         }
 
-        return factoresPrimos;
+        // Eliminar el último "* " sobrante
+        if (resultado.length() >= 3) {
+            resultado.setLength(resultado.length() - 3);
+        }
+
+        return resultado.toString();
     }
 }
