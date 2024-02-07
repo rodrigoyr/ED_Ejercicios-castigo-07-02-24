@@ -36,8 +36,8 @@ public class EstadisticasArray {
         } while (numero != 0);
 
         // Redimensionar el array al tamaño real
-        int[] resultado = new int[indice];
-        System.arraycopy(numeros, 0, resultado, 0, indice);
+        int[] resultado = new int[indice - 1]; // Se ajusta el tamaño restando 1 para excluir el 0
+        System.arraycopy(numeros, 0, resultado, 0, indice - 1);
 
         return resultado;
     }
@@ -88,3 +88,4 @@ public class EstadisticasArray {
         return maximo;
     }
 }
+
