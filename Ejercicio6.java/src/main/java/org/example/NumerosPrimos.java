@@ -1,7 +1,12 @@
+import java.util.Scanner;
+
 public class NumerosPrimos {
 
     public static void main(String[] args) {
-        int N = 10;  // Puedes cambiar este valor según tus necesidades
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ingrese el valor de N para obtener los primeros N números primos: ");
+        int N = scanner.nextInt();
 
         // Obtener los N primeros números primos
         int[] primos = obtenerNumerosPrimos(N);
@@ -11,6 +16,9 @@ public class NumerosPrimos {
         for (int primo : primos) {
             System.out.print(primo + " ");
         }
+
+        // Cerrar el scanner
+        scanner.close();
     }
 
     // Función para obtener los N primeros números primos
