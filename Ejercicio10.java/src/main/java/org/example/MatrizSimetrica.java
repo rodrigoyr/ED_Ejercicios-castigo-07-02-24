@@ -6,7 +6,6 @@ public class MatrizSimetrica {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Solicitar al usuario la dimensión de la matriz cuadrada
         System.out.print("Ingrese la dimensión de la matriz cuadrada: ");
         int dimension = scanner.nextInt();
 
